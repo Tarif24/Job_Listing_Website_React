@@ -30,7 +30,10 @@ const JobListings = ({ isHome = false }) => {
                     {isHome ? "Recent Jobs" : "Browse Jobs"}
                 </h2>
                 {loading ? (
-                    <Spinner loading={loading} />
+                    <div>
+                        <Spinner loading={loading} />
+                        <div className="h-[110vh]"></div>
+                    </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {jobs.map((job) => (
