@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
+import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
     const linkClass = ({ isActive }) => isActive ? "bg-black text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2" : "text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2";
@@ -12,16 +12,12 @@ const Navbar = () => {
                     <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                         {/* <!-- Logo --> */}
                         <NavLink
-                            className="flex flex-shrink-0 items-center mr-4"
+                            className="flex flex-shrink-0 items-center mr-4 gap-2"
                             to="/"
                         >
-                            <img
-                                className="h-10 w-auto"
-                                src={ logo }
-                                alt="React Jobs"
-                            />
+                            <FaSearch size="2rem" color="white"/>
                             <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                                React Jobs
+                                Job Search
                             </span>
                         </NavLink>
                         <div className="md:ml-auto">
