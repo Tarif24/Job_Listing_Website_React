@@ -10,7 +10,7 @@
   <h3 align="center">Job Listing Website</h3>
 
   <p align="center">
-    
+    A job listing site that helps you search smarter, find faster
     <br />
     <br />
     <br />
