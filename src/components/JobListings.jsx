@@ -5,6 +5,8 @@ import JobListing from "./JobListing";
 const JobListings = ({ isHome = false }) => {
     const [jobs, setJobs] = useState([]);
     const [loading, setLoading] = useState(true);
+    const limit = 3;
+    const tempJobs = [];
 
     useEffect(() => {
         const fetchJobs = async () => {
@@ -23,6 +25,16 @@ const JobListings = ({ isHome = false }) => {
 
         fetchJobs();
     }, []);
+
+    if (isHome) {
+        for (let i = 0; i < limit; i++) {
+            tempJobs.push(jobs[i]);
+        }
+
+        if (JSON.stringify(tempJobs) !== JSON.stringify(jobs)) {
+            setJobs(tempJobs);
+        }
+    }
 
     return (
         <section className="bg-blue-50 px-4 py-10">
