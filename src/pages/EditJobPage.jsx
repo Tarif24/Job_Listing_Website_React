@@ -41,9 +41,13 @@ const EditJobPage = ({ updateJobSubmit }) => {
 
         updateJobSubmit(updatedJob);
 
+        setTimeout(function () {
+            navigate(`/job/${id}`);
+        }, 175);
+
         toast.success("Job Updated Successfully");
 
-        return navigate(`/job/${id}`);
+        return;
     };
 
     return (

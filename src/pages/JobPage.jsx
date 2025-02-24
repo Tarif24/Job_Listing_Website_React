@@ -3,10 +3,12 @@ import { useParams, useLoaderData, Link, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-const JobPage = ({deleteJob}) => {
+const JobPage = ({ deleteJob }) => {
     const { id } = useParams();
     const job = useLoaderData();
     const navigate = useNavigate();
+
+    console.log(job);
 
     // useEffect(() => {
     //         const fetchJobs = async () => {
@@ -25,7 +27,9 @@ const JobPage = ({deleteJob}) => {
     //     }, []);
 
     const onDeleteClick = (id) => {
-        const confirm = window.confirm("Are you sure you want to delete this job?");
+        const confirm = window.confirm(
+            "Are you sure you want to delete this job?"
+        );
 
         if (!confirm) return;
 
@@ -119,12 +123,15 @@ const JobPage = ({deleteJob}) => {
                                     Manage Job
                                 </h3>
                                 <Link
-                                    to={`/edit-job/${job.id}`}
+                                    to={`/edit-job/${job._id}`}
                                     className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                                 >
                                     Edit Job
                                 </Link>
-                                <button onClick={() => onDeleteClick(job.id)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                                <button
+                                    onClick={() => onDeleteClick(job._id)}
+                                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                                >
                                     Delete Job
                                 </button>
                             </div>
@@ -137,7 +144,9 @@ const JobPage = ({deleteJob}) => {
 };
 
 const jobLoader = async ({ params }) => {
-    const res = await fetch(`/api/jobs/${params.id}`);
+    const res = await fetch(
+        `https://job-listing-api-84p2.onrender.com/api/job/${params.id}`
+    );
     const data = await res.json();
     return data;
 };

@@ -8,7 +8,8 @@ const JobListings = ({ isHome = false }) => {
 
     useEffect(() => {
         const fetchJobs = async () => {
-            const apiURL = isHome ? "/api/jobs?_limit=3" :" /api/jobs";
+            const apiURL =
+                "https://job-listing-api-84p2.onrender.com/api/job/getAllJobs";
             try {
                 const res = await fetch(apiURL);
                 const data = await res.json();
@@ -37,7 +38,7 @@ const JobListings = ({ isHome = false }) => {
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {jobs.map((job) => (
-                            <JobListing key={job.id} job={job} />
+                            <JobListing key={job._id} job={job} />
                         ))}
                     </div>
                 )}
