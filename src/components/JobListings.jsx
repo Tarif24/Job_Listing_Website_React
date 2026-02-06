@@ -11,7 +11,7 @@ const JobListings = ({ isHome = false }) => {
     useEffect(() => {
         const fetchJobs = async () => {
             const apiURL =
-                "https://job-listing-api-84p2.onrender.com/api/job/getAllJobs";
+                "https://joblisting-api.tarifmohammad.com/api/job/getAllJobs";
             try {
                 const res = await fetch(apiURL);
                 const data = await res.json();
